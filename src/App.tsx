@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import "./App.css";
 
 interface Todo {
