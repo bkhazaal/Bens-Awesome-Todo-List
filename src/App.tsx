@@ -12,6 +12,7 @@ function App() {
   const [todoItems, setTodoItems] = useState<Todo[]>([]);
   const [input, setInput] = useState("");
   const [view, setView] = useState<"all" | "active" | "completed">("all");
+  const [mode, setMode] = useState<"dark" | "light">("light");
 
   const addNewToDo = (text: string) => {
     setInput("");
@@ -49,20 +50,28 @@ function App() {
   const clearCompleted = () => {
     const completedItems = todoItems.filter((todo) => todo.completed === false);
     setTodoItems(completedItems);
+    setView("all");
   };
 
   const active = todoItems.filter((todo) => todo.completed === false);
-
-  // if the clear completed button is pressed, all of the todo cards that are checked (true) will be completely deleted //
+  const completedItems = todoItems.filter((todo) => todo.completed === true);
 
   return (
-    <div className="container">
+    <div className={`container ${mode === "dark" ? "dark-mode" : ""}`}>
       <header className="header-container"></header>
       <div className="the-entire-ui">
         <div className="header-items">
           <h1>T O D O</h1>
-          <button type="button">
-            <img src="/icon-moon.svg" alt="Moon" />
+          <button
+            type="button"
+            onClick={() =>
+              setMode((prev) => (prev === "light" ? "dark" : "light"))
+            }
+          >
+            <img
+              src={mode === "dark" ? "icon-sun.svg" : "icon-moon.svg"}
+              alt="Moon"
+            />
           </button>
         </div>
         <div className="todolist">
@@ -116,7 +125,10 @@ function App() {
                 ))}
 
               <div className="todo-field">
-                <p>{active.length} Items left</p>
+                <p>
+                  {active.length} Items left, {completedItems.length} Items
+                  completed
+                </p>
                 <button onClick={clearCompleted}>Clear Completed</button>
               </div>
             </div>

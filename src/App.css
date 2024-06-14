@@ -8,7 +8,11 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 100%);
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  min-height: 100vh;
 }
 
 .header-container {
@@ -21,6 +25,11 @@ body {
   .header-container {
     background-image: url("/bg-desktop-light.jpg");
   }
+  .dark-mode {
+    .header-container {
+      background-image: url("/bg-desktop-dark.jpg");
+    }
+  }
 }
 
 @media (min-width: 600px) {
@@ -28,6 +37,10 @@ body {
     max-width: 600px;
     margin: 0 auto;
   }
+}
+
+.container.dark-mode {
+  background-color: hsl(233, 14%, 35%);
 }
 
 .header-items {
@@ -71,6 +84,11 @@ body {
   border-radius: 5px;
 }
 
+.dark-mode .todolist input {
+  background-color: hsl(0, 0%, 29%);
+  color: rgb(255, 255, 255);
+}
+
 .todo-field {
   font-size: 15px;
   width: 100%;
@@ -84,6 +102,11 @@ body {
   justify-content: space-between;
   padding: 20px 45px;
   background-color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .todo-field {
+  background-color: hsl(0, 0%, 29%);
+  color: rgb(255, 255, 255);
 }
 
 .todolist input:focus {
