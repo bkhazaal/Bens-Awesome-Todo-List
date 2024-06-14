@@ -66,6 +66,15 @@ body {
   right: 25px;
 }
 
+.header-items img {
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.header-items img:hover {
+  transform: scale(1.5, 1.5);
+}
+
 .todolist {
   display: block;
   position: relative;
@@ -134,10 +143,10 @@ body {
   place-items: center;
 }
 
-.checkbox-container input {
+.checkbox-container input[type="checkbox"] {
   height: 20px;
   width: 20px;
-  border-radius: 100%;
+  transition: 0.5s;
 }
 
 .todo-field button {
