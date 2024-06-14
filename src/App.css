@@ -40,7 +40,7 @@ body {
 }
 
 .container.dark-mode {
-  background-color: hsl(233, 14%, 35%);
+  background-color: hsl(234, 9%, 22%);
 }
 
 .header-items {
@@ -147,6 +147,11 @@ body {
   font-size: 15px;
   background: none;
   color: rgb(90, 90, 90);
+}
+
+.dark-mode .todo-field button {
+  background-color: hsl(0, 0%, 29%);
+  color: rgb(255, 255, 255);
 }
 
 .todo-field button:hover {
