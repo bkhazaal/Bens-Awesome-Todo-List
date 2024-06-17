@@ -25,6 +25,8 @@ function App() {
       completed: false,
     };
 
+    setView("all");
+
     console.log("newTodo", newTodo);
 
     setTodoItems((prev) => [...prev, newTodo]);
@@ -133,9 +135,24 @@ function App() {
               </div>
             </div>
             <div className="status-buttons todo-field">
-              <button onClick={() => setView("all")}>All</button>
-              <button onClick={() => setView("active")}>Active</button>
-              <button onClick={() => setView("completed")}>Completed</button>
+              <button
+                className={view === "all" ? "active-button" : ""}
+                onClick={() => setView("all")}
+              >
+                All
+              </button>
+              <button
+                className={view === "active" ? "active-button" : ""}
+                onClick={() => setView("active")}
+              >
+                Active
+              </button>
+              <button
+                className={view === "completed" ? "active-button" : ""}
+                onClick={() => setView("completed")}
+              >
+                Completed
+              </button>
             </div>
             <p className="error-message" hidden>
               Please Enter Something
